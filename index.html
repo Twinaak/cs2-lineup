@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CS2 Lineup</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#08111E;--bg2:#0D1929;--bg3:#111F30;
+  --acc:#FF6B2B;--acc2:#FFD700;--acc-dim:rgba(255,107,43,.12);
+  --txt:#EDF0F5;--mut:#5C6E82;--bdr:rgba(255,255,255,.06);
+  --r:12px;--easy:#22C55E;--med:#EAB308;--hard:#EF4444;
+}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;overscroll-behavior:none;user-select:none}
+
+/* ─── SCREENS ─────────────────────────────────────── */
+.scr{display:none;flex-direction:column;min-height:100vh}
+.scr.on{display:flex}
+
+/* ─── TOP BAR ─────────────────────────────────────── */
+.top{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(8,17,30,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:50}
+.btn-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--bg2);border-radius:10px;cursor:pointer;font-size:15px;flex-shrink:0;transition:background .15s}
+.btn-icon:active{background:var(--bg3)}
+.top-title{flex:1;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top-sub{font-size:11px;color:var(--mut);margin-top:1px}
+
+/* ─── SCROLL ──────────────────────────────────────── */
+.body{flex:1;overflow-y:auto;padding-bottom:72px;-webkit-overflow-scrolling:touch}
+::-webkit-scrollbar{display:none}
+
+/* ─── BOTTOM NAV ──────────────────────────────────── */
+.bnav{position:fixed;bottom:0;left:0;right:0;height:60px;background:rgba(13,25,41,.97);backdrop-filter:blur(20px);border-top:1px solid var(--bdr);display:flex;z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--mut);font-size:10px;cursor:pointer;transition:color .2s}
+.nb.on{color:var(--acc)}
+.nb i{font-size:20px;line-height:1}
+
+/* ─── HOME ────────────────────────────────────────── */
+.home-hd{padding:18px 14px 14px}
+.logo-row{display:flex;align-items:center;gap:10px;margin-bottom:3px}
+.logo-box{width:38px;height:38px;background:linear-gradient(135deg,var(--acc),#C13500);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.logo-name{font-size:19px;font-weight:800;letter-spacing:-.4px}
+.logo-name b{color:var(--acc)}
+.logo-sub{font-size:12px;color:var(--mut);margin-left:48px}
+.search-tap{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--bdr);border-radius:11px;padding:11px 13px;margin:12px 14px 4px;cursor:pointer}
+.search-tap span{color:var(--mut);font-size:14px}
+.sec-lbl{padding:10px 14px 8px;font-size:11px;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.6px}
+.maps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;padding:0 14px}
+.map-card{height:108px;border-radius:var(--r);overflow:hidden;cursor:pointer;position:relative;display:flex;align-items:flex-end;padding:10px;border:1px solid rgba(255,255,255,.04);transition:transform .15s}
+.map-card:active{transform:scale(.97)}
+.map-card-gradient{position:absolute;inset:0}
+.map-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 60%)}
+.map-card-cnt{position:relative;z-index:2;width:100%}
+.map-card-name{font-size:14px;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.9)}
+.map-card-count{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px}
+.map-card-emoji{position:absolute;top:8px;right:10px;font-size:24px;z-index:2;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+
+/* ─── LINEUPS SCREEN ──────────────────────────────── */
+.tabs{display:flex;gap:6px;padding:10px 14px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:7px 15px;border-radius:20px;border:1px solid var(--bdr);background:var(--bg2);color:var(--mut);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:700}
+.diff-row{display:flex;gap:6px;padding:0 14px 10px;overflow-x:auto;scrollbar-width:none}
+.dp{flex-shrink:0;padding:5px 12px;border-radius:20px;border:1px solid var(--bdr);background:transparent;color:var(--mut);font-size:12px;cursor:pointer;transition:all .2s}
+.dp.on{background:var(--bg3);border-color:rgba(255,255,255,.14);color:var(--txt)}
+.cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;padding:0 14px}
+
+/* ─── LINEUP CARD ─────────────────────────────────── */
+.lcard{background:var(--bg2);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform .15s;border:1px solid var(--bdr)}
+.lcard:active{transform:scale(.97)}
+.lcard-thumb{width:100%;aspect-ratio:16/9;background:var(--bg3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.lcard-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.play-ring{position:absolute;width:34px;height:34px;background:rgba(0,0,0,.55);border-radius:50%;border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:13px;padding-left:3px;backdrop-filter:blur(4px)}
+.no-vid{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--mut);font-size:10px;gap:4px;background:linear-gradient(135deg,var(--bg3),var(--bg))}
+.no-vid-icon{font-size:22px;opacity:.4}
+.lcard-body{padding:9px}
+.lcard-name{font-size:12px;font-weight:700;line-height:1.3;margin-bottom:4px}
+.lcard-pos{font-size:11px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.diff-chip{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mut)}
+.diff-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.fav-mark{font-size:13px}
+
+/* ─── VIDEO SCREEN ────────────────────────────────── */
+.vid-scr{background:var(--bg)}
+.vid-top{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(8,17,30,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:50}
+.vid-map-badge{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mut);flex:1;min-width:0;overflow:hidden}
+.vid-map-badge span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vid-fav{font-size:22px;cursor:pointer;flex-shrink:0;transition:transform .2s}
+.vid-fav:active{transform:scale(.85)}
+.vid-player{width:100%;aspect-ratio:16/9;background:#000;position:relative;flex-shrink:0}
+.vid-player iframe{width:100%;height:100%;border:none;display:block}
+.vid-placeholder{width:100%;aspect-ratio:16/9;background:var(--bg2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--mut);border-bottom:1px solid var(--bdr)}
+.vid-placeholder-icon{font-size:44px;opacity:.3}
+.vid-placeholder p{font-size:13px}
+.vid-placeholder small{font-size:11px;color:var(--mut);opacity:.7}
+.vid-body{padding:14px}
+.vid-title{font-size:19px;font-weight:800;line-height:1.3;margin-bottom:10px}
+.vid-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.badge{display:flex;align-items:center;gap:5px;padding:5px 10px;background:var(--bg3);border-radius:8px;font-size:12px;border:1px solid var(--bdr)}
+.pos-card{background:var(--bg2);border-radius:10px;padding:11px 13px;margin-bottom:12px;border:1px solid var(--bdr);display:flex;align-items:center;gap:8px}
+.pos-col{flex:1;min-width:0}
+.pos-col small{display:block;font-size:10px;color:var(--mut);margin-bottom:3px;text-transform:uppercase;letter-spacing:.4px}
+.pos-col span{font-size:13px;font-weight:600}
+.pos-sep{color:var(--acc);font-size:20px;flex-shrink:0}
+.steps-hd{font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.step{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+.step-n{width:22px;height:22px;background:var(--acc);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;color:#fff}
+.step-t{font-size:13px;line-height:1.55;padding-top:3px}
+.tip-box{background:rgba(255,107,43,.08);border:1px solid rgba(255,107,43,.2);border-radius:10px;padding:10px 13px;font-size:13px;color:var(--acc2);margin-top:12px;display:flex;gap:8px;line-height:1.45}
+.vid-nav{display:flex;gap:10px;padding:14px 14px 0}
+.vnb{flex:1;padding:12px 8px;background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;font-size:13px;font-weight:600;transition:background .15s}
+.vnb:active{background:var(--bg3)}
+.vnb.off{opacity:.3;pointer-events:none}
+
+/* ─── SEARCH SCREEN ───────────────────────────────── */
+.search-hd{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(8,17,30,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:50}
+.search-wrap{flex:1;display:flex;align-items:center;background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:10px 12px;gap:8px}
+.search-wrap input{flex:1;background:none;border:none;outline:none;color:var(--txt);font-size:15px}
+.search-wrap input::placeholder{color:var(--mut)}
+.search-cancel{font-size:14px;color:var(--acc);cursor:pointer;white-space:nowrap}
+.sres{padding:14px 14px 0;display:flex;flex-direction:column;gap:1px}
+.sres-item{display:flex;gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid var(--bdr);cursor:pointer;transition:background .15s}
+.sres-item:last-child{border-bottom:none}
+.sres-item:active{opacity:.75}
+.sres-thumb{width:58px;height:33px;border-radius:7px;background:var(--bg3);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.sres-thumb img{width:100%;height:100%;object-fit:cover}
+.sres-info{flex:1;min-width:0}
+.sres-name{font-size:13px;font-weight:600}
+.sres-meta{font-size:11px;color:var(--mut);margin-top:2px}
+
+/* ─── FAVORITES SCREEN ────────────────────────────── */
+.fav-hd{padding:14px 14px 4px}
+.fav-hd h2{font-size:18px;font-weight:800}
+.fav-hd p{font-size:12px;color:var(--mut);margin-top:3px}
+
+/* ─── EMPTY ───────────────────────────────────────── */
+.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 30px;text-align:center;gap:10px;color:var(--mut)}
+.empty-ico{font-size:50px;opacity:.5}
+.empty h3{font-size:16px;font-weight:700;color:var(--txt)}
+.empty p{font-size:13px}
+
+/* ─── MISC ────────────────────────────────────────── */
+.fade{animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN: HOME
+══════════════════════════════════════════════════════ -->
+<div id="s-home" class="scr on">
+  <div class="body" id="home-body">
+    <div class="home-hd">
+      <div class="logo-row">
+        <div class="logo-box">🎯</div>
+        <div class="logo-name">CS2 <b>Lineup</b></div>
+      </div>
+      <div class="logo-sub">Раскидки гранат по всем картам CS2</div>
+    </div>
+    <div class="search-tap" onclick="openSearch()">
+      <span>🔍</span>
+      <span>Поиск раскидки...</span>
+    </div>
+    <div class="sec-lbl">Карты</div>
+    <div class="maps-grid" id="maps-grid"></div>
+    <div style="height:10px"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN: LINEUPS
+══════════════════════════════════════════════════════ -->
+<div id="s-lineups" class="scr">
+  <div class="top" id="lu-top">
+    <div class="btn-icon" onclick="back()">◀</div>
+    <div>
+      <div class="top-title" id="lu-title"></div>
+      <div class="top-sub" id="lu-sub"></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="tabs" id="nade-tabs"></div>
+    <div class="diff-row" id="diff-row"></div>
+    <div class="cards-grid fade" id="cards-grid"></div>
+    <div style="height:10px"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN: VIDEO PLAYER
+══════════════════════════════════════════════════════ -->
+<div id="s-video" class="scr vid-scr">
+  <div class="vid-top">
+    <div class="btn-icon" onclick="back()">◀</div>
+    <div class="vid-map-badge" id="vid-badge"></div>
+    <div class="vid-fav" id="vid-fav-btn" onclick="toggleFav()"></div>
+  </div>
+  <div class="body">
+    <div id="vid-player-area"></div>
+    <div class="vid-body">
+      <div class="vid-title" id="vid-name"></div>
+      <div class="vid-meta" id="vid-meta"></div>
+      <div class="pos-card">
+        <div class="pos-col"><small>Откуда</small><span id="vid-from"></span></div>
+        <div class="pos-sep">→</div>
+        <div class="pos-col"><small>Куда</small><span id="vid-to"></span></div>
+      </div>
+      <div class="steps-hd">📋 Инструкция</div>
+      <div id="vid-steps"></div>
+      <div id="vid-tip"></div>
+    </div>
+    <div class="vid-nav">
+      <div class="vnb" id="vid-prev" onclick="vidNav(-1)"><span>◀</span>Предыдущая</div>
+      <div class="vnb" id="vid-next" onclick="vidNav(1)">Следующая<span>▶</span></div>
+    </div>
+    <div style="height:20px"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN: SEARCH
+══════════════════════════════════════════════════════ -->
+<div id="s-search" class="scr">
+  <div class="search-hd">
+    <div class="search-wrap">
+      <span>🔍</span>
+      <input type="search" id="search-inp" placeholder="Карта, позиция, название..." oninput="doSearch(this.value)" autocomplete="off">
+    </div>
+    <div class="search-cancel" onclick="back()">Отмена</div>
+  </div>
+  <div class="body">
+    <div class="sres" id="sres"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN: FAVORITES
+══════════════════════════════════════════════════════ -->
+<div id="s-favs" class="scr">
+  <div class="top">
+    <div class="btn-icon" onclick="backToHome()">◀</div>
+    <div class="top-title">⭐ Избранное</div>
+  </div>
+  <div class="body">
+    <div id="favs-body"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     BOTTOM NAV
+══════════════════════════════════════════════════════ -->
+<nav class="bnav" id="bnav">
+  <div class="nb on" id="nb-maps" onclick="showHome(); setNb('nb-maps')">
+    <i>🗺️</i><span>Карты</span>
+  </div>
+  <div class="nb" id="nb-favs" onclick="showFavs(); setNb('nb-favs')">
+    <i>⭐</i><span>Избранное</span>
+  </div>
+  <div class="nb" id="nb-search" onclick="openSearch(); setNb('nb-search')">
+    <i>🔍</i><span>Поиск</span>
+  </div>
+</nav>
+
+<script src="data.js"></script>
+<script>
+// ── TELEGRAM INIT ──────────────────────────────────────────
+const tg = window.Telegram?.WebApp || { ready(){}, expand(){}, HapticFeedback:{notificationOccurred(){},selectionChanged(){}}, BackButton:{show(){},hide(){},onClick(){}}, setHeaderColor(){}, setBackgroundColor(){} };
+tg.ready();
+tg.expand();
+try { tg.setHeaderColor('#08111E'); tg.setBackgroundColor('#08111E'); } catch(e){}
+
+// ── STATE ──────────────────────────────────────────────────
+let curScreen = 'home';
+let selMap = null;
+let selType = 'smoke';
+let selDiff = 'all';
+let selLineupId = null;
+let navHistory = [];
+let favs = JSON.parse(localStorage.getItem('cs2_favs') || '[]');
+
+function saveFavs(){ localStorage.setItem('cs2_favs', JSON.stringify(favs)); }
+function isFav(id){ return favs.includes(id); }
+function toggleFav(){
+  const id = selLineupId;
+  if(!id) return;
+  if(isFav(id)) favs = favs.filter(f=>f!==id);
+  else favs.push(id);
+  saveFavs();
+  updateFavBtn();
+  tg.HapticFeedback.notificationOccurred(isFav(id)?'success':'warning');
+}
+function updateFavBtn(){
+  const btn = document.getElementById('vid-fav-btn');
+  if(btn) btn.textContent = isFav(selLineupId) ? '💛' : '⭐';
+}
+
+// ── HELPERS ────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+function lineupsByMapType(map, type){
+  return LINEUPS.filter(l=>l.map===map && l.type===type);
+}
+function lineupById(id){ return LINEUPS.find(l=>l.id===id); }
+function mapCount(mapId){ return LINEUPS.filter(l=>l.map===mapId).length; }
+function typeCount(mapId, type){ return LINEUPS.filter(l=>l.map===mapId&&l.type===type).length; }
+function ytThumb(ytId){ return ytId ? `https://img.youtube.com/vi/${ytId}/mqdefault.jpg` : null; }
+function diffLabel(d){ return {easy:'🟢 Лёгкий',medium:'🟡 Средний',hard:'🔴 Сложный'}[d]||d; }
+function diffColor(d){ return {easy:'--easy',medium:'--med',hard:'--hard'}[d]||'--mut'; }
+
+function showScreen(id){
+  document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));
+  $(id).classList.add('on');
+  curScreen = id;
+  if(id==='s-home' || id==='s-favs' || id==='s-search'){
+    $('bnav').style.display='flex';
+  } else {
+    $('bnav').style.display='none';
+  }
+  if(id==='s-home'){ tg.BackButton.hide(); }
+  else { tg.BackButton.show(); }
+}
+
+function setNb(id){
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
+  $(id)?.classList.add('on');
+}
+
+tg.BackButton.onClick(()=>back());
+
+// ── BACK NAVIGATION ────────────────────────────────────────
+function back(){
+  if(navHistory.length){
+    const prev = navHistory.pop();
+    prev();
+  } else {
+    showHome();
+  }
+}
+function backToHome(){ navHistory=[]; showHome(); setNb('nb-maps'); }
+
+// ── HOME ───────────────────────────────────────────────────
+function showHome(){
+  navHistory = [];
+  renderMaps();
+  showScreen('s-home');
+}
+
+function renderMaps(){
+  const g = $('maps-grid');
+  if(!g) return;
+  const entries = Object.entries(MAPS);
+  g.innerHTML = entries.map(([id, m], i) => {
+    const cnt = mapCount(id);
+    const isLast = i === entries.length-1 && entries.length%2 !== 0;
+    return `<div class="map-card${isLast?' style="grid-column:1/-1;max-width:calc(50% - 4px)"':''}"
+      onclick="openMap('${id}')"
+      style="grid-column:${isLast?'1':''}"
+    >
+      <div class="map-card-gradient" style="background:linear-gradient(135deg,${m.c1},${m.c2})"></div>
+      <span class="map-card-emoji">${m.emoji}</span>
+      <div class="map-card-cnt">
+        <div class="map-card-name">${m.name}</div>
+        <div class="map-card-count">${cnt} раскидок</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── LINEUPS SCREEN ─────────────────────────────────────────
+function openMap(mapId){
+  selMap = mapId;
+  selType = 'smoke';
+  selDiff = 'all';
+  navHistory.push(()=>showHome());
+  renderLineupsScreen();
+  showScreen('s-lineups');
+}
+
+function renderLineupsScreen(){
+  const m = MAPS[selMap];
+  $('lu-title').textContent = `${m.emoji} ${m.name}`;
+  $('lu-sub').textContent = `${mapCount(selMap)} раскидок`;
+  renderTabs();
+  renderDiffFilter();
+  renderCards();
+}
+
+function renderTabs(){
+  $('nade-tabs').innerHTML = Object.entries(TYPES).map(([id,t])=>{
+    const cnt = typeCount(selMap, id);
+    return `<div class="tab${selType===id?' on':''}" onclick="selType='${id}';selDiff='all';renderDiffFilter();renderCards();document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));this.classList.add('on')">
+      ${t.emoji} ${t.name} <span style="opacity:.6;font-weight:400">${cnt}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderDiffFilter(){
+  $('diff-row').innerHTML = ['all','easy','medium','hard'].map(d=>{
+    const label = d==='all' ? 'Все' : diffLabel(d);
+    return `<div class="dp${selDiff===d?' on':''}" onclick="selDiff='${d}';renderCards();document.querySelectorAll('.dp').forEach(x=>x.classList.remove('on'));this.classList.add('on')">${label}</div>`;
+  }).join('');
+}
+
+function renderCards(){
+  let items = lineupsByMapType(selMap, selType);
+  if(selDiff !== 'all') items = items.filter(l=>l.difficulty===selDiff);
+  const g = $('cards-grid');
+  if(!items.length){
+    g.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-ico">😔</div><h3>Раскидок нет</h3><p>Выбери другой тип или сложность</p></div>`;
+    return;
+  }
+  g.className = 'cards-grid fade';
+  g.innerHTML = items.map(l => cardHTML(l)).join('');
+}
+
+function cardHTML(l){
+  const thumb = ytThumb(l.ytId);
+  const thumbEl = thumb
+    ? `<img src="${thumb}" alt="" onerror="this.parentNode.innerHTML='<span class=\\'no-vid-icon\\' style=\\'font-size:24px;opacity:.35\\'>${TYPES[l.type].emoji}</span>'">
+       <div class="play-ring">▶</div>`
+    : `<div class="no-vid"><div class="no-vid-icon">🎬</div>Видео скоро</div>`;
+  const fmark = isFav(l.id) ? '<span class="fav-mark">⭐</span>' : '';
+  return `<div class="lcard" onclick="openVideo('${l.id}')">
+    <div class="lcard-thumb">${thumbEl}</div>
+    <div class="lcard-body">
+      <div class="lcard-name">${l.name}</div>
+      <div class="lcard-pos">📍 ${l.from} → ${l.to}</div>
+      <div class="lcard-foot">
+        <div class="diff-chip">
+          <span class="diff-dot" style="background:var(${diffColor(l.difficulty)})"></span>
+          ${diffLabel(l.difficulty).split(' ')[1]}
+        </div>
+        ${fmark}
+      </div>
+    </div>
+  </div>`;
+}
+
+// ── VIDEO SCREEN ───────────────────────────────────────────
+function openVideo(lineupId){
+  const l = lineupById(lineupId);
+  if(!l) return;
+  selLineupId = lineupId;
+  if(curScreen === 's-lineups'){
+    navHistory.push(()=>{ selLineupId=null; showScreen('s-lineups'); renderLineupsScreen(); });
+  } else if(curScreen === 's-search'){
+    navHistory.push(()=>showScreen('s-search'));
+  } else if(curScreen === 's-favs'){
+    navHistory.push(()=>{ showFavs(); });
+  }
+  renderVideoScreen(l);
+  showScreen('s-video');
+  tg.HapticFeedback.selectionChanged();
+}
+
+function renderVideoScreen(l){
+  const m = MAPS[l.map];
+  const t = TYPES[l.type];
+
+  // Badge
+  $('vid-badge').innerHTML = `<span>${m.emoji} ${m.name}</span><span style="padding:0 4px;opacity:.4">·</span><span>${t.emoji} ${t.name}</span>`;
+
+  // Fav button
+  updateFavBtn();
+
+  // Video
+  const pa = $('vid-player-area');
+  if(l.ytId){
+    pa.innerHTML = `<div class="vid-player">
+      <iframe src="https://www.youtube-nocookie.com/embed/${l.ytId}?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>`;
+  } else {
+    pa.innerHTML = `<div class="vid-placeholder">
+      <div class="vid-placeholder-icon">🎬</div>
+      <p>Видео для этой раскидки ещё не добавлено</p>
+      <small>Добавь ytId в data.js</small>
+    </div>`;
+  }
+
+  // Info
+  $('vid-name').textContent = l.name;
+  $('vid-meta').innerHTML = `
+    <span class="badge"><span class="diff-dot" style="background:var(${diffColor(l.difficulty)})"></span>${diffLabel(l.difficulty)}</span>
+    <span class="badge">${t.emoji} ${t.name}</span>
+    <span class="badge">${m.emoji} ${m.name}</span>`;
+
+  $('vid-from').textContent = l.from;
+  $('vid-to').textContent = l.to;
+
+  $('vid-steps').innerHTML = l.steps.map((s,i)=>`
+    <div class="step">
+      <div class="step-n">${i+1}</div>
+      <div class="step-t">${s}</div>
+    </div>`).join('');
+
+  $('vid-tip').innerHTML = l.tip
+    ? `<div class="tip-box"><span>✨</span><span>${l.tip}</span></div>` : '';
+
+  // Prev / Next
+  const siblings = lineupsByMapType(l.map, l.type);
+  const idx = siblings.findIndex(x=>x.id===l.id);
+  $('vid-prev').classList.toggle('off', idx===0);
+  $('vid-next').classList.toggle('off', idx===siblings.length-1);
+}
+
+function vidNav(dir){
+  const l = lineupById(selLineupId);
+  if(!l) return;
+  const siblings = lineupsByMapType(l.map, l.type);
+  const idx = siblings.findIndex(x=>x.id===l.id);
+  const next = siblings[idx+dir];
+  if(!next) return;
+  selLineupId = next.id;
+  renderVideoScreen(next);
+  tg.HapticFeedback.selectionChanged();
+  $('s-video').querySelector('.body').scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── SEARCH ─────────────────────────────────────────────────
+function openSearch(){
+  navHistory.push(()=>{ showHome(); setNb('nb-maps'); });
+  showScreen('s-search');
+  setTimeout(()=>$('search-inp').focus(), 100);
+  $('sres').innerHTML = `<div class="empty"><div class="empty-ico">🔍</div><p>Введи название карты,<br>позиции или раскидки</p></div>`;
+}
+
+function doSearch(q){
+  const s = q.trim().toLowerCase();
+  if(!s){ $('sres').innerHTML = `<div class="empty"><div class="empty-ico">🔍</div><p>Введи поисковый запрос</p></div>`; return; }
+  const res = LINEUPS.filter(l=>
+    l.name.toLowerCase().includes(s)||
+    l.from.toLowerCase().includes(s)||
+    l.to.toLowerCase().includes(s)||
+    MAPS[l.map].name.toLowerCase().includes(s)||
+    TYPES[l.type].name.toLowerCase().includes(s)
+  );
+  if(!res.length){
+    $('sres').innerHTML = `<div class="empty"><div class="empty-ico">😔</div><h3>Ничего не нашли</h3><p>Попробуй другой запрос</p></div>`;
+    return;
+  }
+  $('sres').innerHTML = res.map(l=>{
+    const m = MAPS[l.map]; const t = TYPES[l.type];
+    const thumb = ytThumb(l.ytId);
+    const thumbEl = thumb ? `<img src="${thumb}" alt="">` : t.emoji;
+    return `<div class="sres-item" onclick="openVideo('${l.id}')">
+      <div class="sres-thumb">${thumbEl}</div>
+      <div class="sres-info">
+        <div class="sres-name">${l.name}</div>
+        <div class="sres-meta">${m.emoji} ${m.name} · ${t.emoji} ${t.name} · ${diffLabel(l.difficulty)}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── FAVORITES ──────────────────────────────────────────────
+function showFavs(){
+  navHistory = [];
+  renderFavsScreen();
+  showScreen('s-favs');
+}
+
+function renderFavsScreen(){
+  const body = $('favs-body');
+  const items = favs.map(id=>lineupById(id)).filter(Boolean);
+  if(!items.length){
+    body.innerHTML = `<div class="empty"><div class="empty-ico">⭐</div><h3>Избранное пусто</h3><p>Открой раскидку и нажми ⭐</p></div>`;
+    return;
+  }
+  body.innerHTML = `
+    <div class="fav-hd"><h2>⭐ Избранное</h2><p>${items.length} ${items.length===1?'раскидка':'раскидок'}</p></div>
+    <div class="cards-grid fade" style="padding:0 14px">${items.map(l=>cardHTML(l)).join('')}</div>
+    <div style="height:10px"></div>`;
+}
+
+// ── INIT ───────────────────────────────────────────────────
+renderMaps();
+</script>
+</body>
+</html>
