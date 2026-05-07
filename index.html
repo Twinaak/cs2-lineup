@@ -469,10 +469,14 @@ function renderCards(){
 }
 
 function cardHTML(l){
-  const thumb = ytThumb(l.ytId);
+  const m = MAPS[l.map];
+  const typeVid = m.typeVideos && m.typeVideos[l.type];
+  const thumb = ytThumb(l.ytId) || ytThumb(typeVid) || ytThumb(m.overviewYtId);
+  const hasOwnVid = !!l.ytId;
+  const ringIcon = hasOwnVid ? '▶' : TYPES[l.type].emoji;
   const thumbEl = thumb
-    ? `<img src="${thumb}" alt="" onerror="this.parentNode.innerHTML='<span class=\\'no-vid-icon\\' style=\\'font-size:24px;opacity:.35\\'>${TYPES[l.type].emoji}</span>'">
-       <div class="play-ring">▶</div>`
+    ? `<img src="${thumb}" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<span style=\\'font-size:24px;opacity:.35\\'>${TYPES[l.type].emoji}</span>'">
+       <div class="play-ring">${ringIcon}</div>`
     : `<div class="no-vid"><div class="no-vid-icon">🎬</div>Видео скоро</div>`;
   const fmark = isFav(l.id) ? '<span class="fav-mark">⭐</span>' : '';
   return `<div class="lcard" onclick="openVideo('${l.id}')">
@@ -597,8 +601,9 @@ function doSearch(q){
   }
   $('sres').innerHTML = res.map(l=>{
     const m = MAPS[l.map]; const t = TYPES[l.type];
-    const thumb = ytThumb(l.ytId);
-    const thumbEl = thumb ? `<img src="${thumb}" alt="">` : t.emoji;
+    const typeVid = m.typeVideos && m.typeVideos[l.type];
+    const thumb = ytThumb(l.ytId) || ytThumb(typeVid) || ytThumb(m.overviewYtId);
+    const thumbEl = thumb ? `<img src="${thumb}" alt="" loading="lazy">` : t.emoji;
     return `<div class="sres-item" onclick="openVideo('${l.id}')">
       <div class="sres-thumb">${thumbEl}</div>
       <div class="sres-info">

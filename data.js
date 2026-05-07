@@ -9,13 +9,20 @@
 // ═══════════════════════════════════════════════════════════
 
 const MAPS = {
-  mirage:  { name: "Mirage",   emoji: "🏙️",  c1: "#1B2B4B", c2: "#4A321A", overviewYtId: "gU6rosu8MHE" },
-  inferno: { name: "Inferno",  emoji: "🌆",  c1: "#3D0F05", c2: "#8B2800", overviewYtId: "gjLDqhibiNQ" },
-  dust2:   { name: "Dust 2",   emoji: "🏜️",  c1: "#2B2010", c2: "#5C3D15", overviewUrl: "videos/dust2-grenades.mp4" },
-  ancient: { name: "Ancient",  emoji: "🏛️",  c1: "#0F2A18", c2: "#1E4A2A", overviewYtId: "aiVZVJzod7o" },
-  nuke:    { name: "Nuke",     emoji: "☢️",  c1: "#0F1B2B", c2: "#1E2B3F", overviewYtId: "gXqYFjHauCM" },
-  anubis:  { name: "Anubis",   emoji: "🐾",  c1: "#251A00", c2: "#4A3200", overviewYtId: "1Xe2-ymHTfQ" },
-  vertigo: { name: "Vertigo",  emoji: "🏗️",  c1: "#0F1520", c2: "#1E2A3D", overviewYtId: "fj1bWi06UWI" },
+  mirage:  { name: "Mirage",   emoji: "🏙️",  c1: "#1B2B4B", c2: "#4A321A", overviewYtId: "gU6rosu8MHE",
+             typeVideos: { smoke: "LFomZyE4M7U", molotov: "UZqCuZavlo0", flash: "UZqCuZavlo0", he: "UZqCuZavlo0" } },
+  inferno: { name: "Inferno",  emoji: "🌆",  c1: "#3D0F05", c2: "#8B2800", overviewYtId: "gjLDqhibiNQ",
+             typeVideos: { smoke: "D9Dntuy80l4", molotov: "Nw3Gd3VT50A", flash: "Nw3Gd3VT50A", he: "Nw3Gd3VT50A" } },
+  dust2:   { name: "Dust 2",   emoji: "🏜️",  c1: "#2B2010", c2: "#5C3D15", overviewUrl: "videos/dust2-grenades.mp4",
+             typeVideos: { smoke: "AHeXRtk4Jco", molotov: "_qlYvhjk0Fo", flash: "_qlYvhjk0Fo", he: "_qlYvhjk0Fo" } },
+  ancient: { name: "Ancient",  emoji: "🏛️",  c1: "#0F2A18", c2: "#1E4A2A", overviewYtId: "aiVZVJzod7o",
+             typeVideos: { smoke: "Vq2XL6ZemQk", molotov: "aiVZVJzod7o", flash: "aiVZVJzod7o", he: "aiVZVJzod7o" } },
+  nuke:    { name: "Nuke",     emoji: "☢️",  c1: "#0F1B2B", c2: "#1E2B3F", overviewYtId: "gXqYFjHauCM",
+             typeVideos: { smoke: "AXFPoVEgXPY", molotov: "gXqYFjHauCM", flash: "gXqYFjHauCM", he: "gXqYFjHauCM" } },
+  anubis:  { name: "Anubis",   emoji: "🐾",  c1: "#251A00", c2: "#4A3200", overviewYtId: "1Xe2-ymHTfQ",
+             typeVideos: { smoke: "tKQuhZOnNZc", molotov: "1Xe2-ymHTfQ", flash: "1Xe2-ymHTfQ", he: "1Xe2-ymHTfQ" } },
+  vertigo: { name: "Vertigo",  emoji: "🏗️",  c1: "#0F1520", c2: "#1E2A3D", overviewYtId: "fj1bWi06UWI",
+             typeVideos: { smoke: "fj1bWi06UWI", molotov: "fj1bWi06UWI", flash: "fj1bWi06UWI", he: "fj1bWi06UWI" } },
 };
 
 const TYPES = {
