@@ -44,7 +44,7 @@ const LINEUPS = [
 
   { id:"mir_smk_01", map:"mirage", type:"smoke", difficulty:"easy",
     name:"CT Smoke", from:"T-спавн (центр)", to:"CT Connector",
-    ytId:"",
+    ytId:"LFomZyE4M7U",
     steps:["Встаньте по центру T-спавна у линии",
            "Прицельтесь в правый верхний угол арки апса",
            "Обычный бросок (левый клик)"],
@@ -52,7 +52,7 @@ const LINEUPS = [
 
   { id:"mir_smk_02", map:"mirage", type:"smoke", difficulty:"medium",
     name:"Jungle Smoke", from:"T-спавн (лево)", to:"Jungle",
-    ytId:"",
+    ytId:"LFomZyE4M7U",
     steps:["Встаньте у левого угла T-спавна, прислонитесь к стене",
            "Поднимите прицел чуть выше крыши левого здания",
            "Обычный бросок — граната перелетает крышу"],
@@ -60,7 +60,7 @@ const LINEUPS = [
 
   { id:"mir_smk_03", map:"mirage", type:"smoke", difficulty:"medium",
     name:"Stairs Smoke", from:"T апс (у ящиков)", to:"Лестницы CT",
-    ytId:"",
+    ytId:"LFomZyE4M7U",
     steps:["Встаньте у больших ящиков в T апсе",
            "Смотрите на верхний левый угол окна апса",
            "Прыжок + бросок одновременно (jumpthrow)"],
@@ -68,7 +68,7 @@ const LINEUPS = [
 
   { id:"mir_smk_04", map:"mirage", type:"smoke", difficulty:"easy",
     name:"Van Smoke (B)", from:"B апс", to:"Van",
-    ytId:"",
+    ytId:"LFomZyE4M7U",
     steps:["Встаньте у правой стены B апса",
            "Прицельтесь в верхний правый угол входа в B",
            "Обычный бросок"],
@@ -76,7 +76,7 @@ const LINEUPS = [
 
   { id:"mir_smk_05", map:"mirage", type:"smoke", difficulty:"easy",
     name:"Short Smoke (B)", from:"B апс (центр)", to:"Short CT",
-    ytId:"",
+    ytId:"LFomZyE4M7U",
     steps:["Встаньте по центру B апса",
            "Прицельтесь в верхний край правой стены тоннеля",
            "Обычный бросок"],
@@ -84,7 +84,7 @@ const LINEUPS = [
 
   { id:"mir_smk_06", map:"mirage", type:"smoke", difficulty:"hard",
     name:"Ticket Booth Smoke", from:"T апс A (у большого ящика)", to:"Ticket Booth",
-    ytId:"",
+    ytId:"LFomZyE4M7U",
     steps:["Встаньте у большого ящика в T апсе A",
            "Прислонитесь к ящику с правой стороны",
            "Прицельтесь в угол кирпичной стены над аркой",
@@ -93,7 +93,7 @@ const LINEUPS = [
 
   { id:"mir_mol_01", map:"mirage", type:"molotov", difficulty:"medium",
     name:"Ticket Booth Mol", from:"T апс (у правого ящика)", to:"Ticket Booth",
-    ytId:"",
+    ytId:"UZqCuZavlo0",
     steps:["Встаньте у правого ящика в T апсе",
            "Прицельтесь в угол арки над Ticket Booth",
            "Обычный бросок — молотов падает прямо в угол"],
@@ -101,7 +101,7 @@ const LINEUPS = [
 
   { id:"mir_mol_02", map:"mirage", type:"molotov", difficulty:"easy",
     name:"Bench Molotov (B)", from:"B апс", to:"Bench",
-    ytId:"",
+    ytId:"UZqCuZavlo0",
     steps:["Встаньте у левой стены B апса",
            "Прицельтесь над левым краем входа в B",
            "Обычный бросок"],
@@ -109,7 +109,7 @@ const LINEUPS = [
 
   { id:"mir_fl_01", map:"mirage", type:"flash", difficulty:"medium",
     name:"Ramp Pop Flash (A)", from:"Ramp (T сторона)", to:"Верхний апс",
-    ytId:"",
+    ytId:"UZqCuZavlo0",
     steps:["Зайдите на Ramp, встаньте у правой стены",
            "Смотрите вверх-вправо на край крыши",
            "Бросьте флешку — рикошетит и слепит A-сайт",
@@ -118,7 +118,7 @@ const LINEUPS = [
 
   { id:"mir_he_01", map:"mirage", type:"he", difficulty:"hard",
     name:"HE на Stairs (A)", from:"T апс A", to:"Лестницы (под ними)",
-    ytId:"",
+    ytId:"UZqCuZavlo0",
     steps:["Встаньте у левой стены T апса A",
            "Прицельтесь в нижний край перил лестниц",
            "Jumpthrow — HE взрывается под перилами"],
@@ -126,7 +126,7 @@ const LINEUPS = [
 
   { id:"mir_smk_07", map:"mirage", type:"smoke", difficulty:"medium",
     name:"Market Window Smoke", from:"T апс A (у больших ящиков)", to:"Market Window",
-    ytId:"",
+    ytId:"LFomZyE4M7U",
     steps:["Встаньте у больших ящиков в T апсе A",
            "Прицельтесь в верхний правый угол Market Window",
            "Обычный бросок"],
@@ -134,7 +134,7 @@ const LINEUPS = [
 
   { id:"mir_smk_08", map:"mirage", type:"smoke", difficulty:"easy",
     name:"Playground Smoke (B)", from:"B апс (у левой стены)", to:"Playground",
-    ytId:"",
+    ytId:"LFomZyE4M7U",
     steps:["Встаньте у левой стены B апса",
            "Прицельтесь в правый верхний угол тоннеля",
            "Обычный бросок"],
@@ -142,7 +142,7 @@ const LINEUPS = [
 
   { id:"mir_mol_03", map:"mirage", type:"molotov", difficulty:"medium",
     name:"CT Cross Molotov (A)", from:"T апс A (правый ящик)", to:"CT Cross",
-    ytId:"",
+    ytId:"UZqCuZavlo0",
     steps:["Встаньте у правого ящика T апса A",
            "Прицельтесь в угол балкона левого здания",
            "Молотов летит на CT Cross"],
@@ -150,7 +150,7 @@ const LINEUPS = [
 
   { id:"mir_mol_04", map:"mirage", type:"molotov", difficulty:"easy",
     name:"Short Molotov (B)", from:"B апс (правая стена)", to:"B Short угол",
-    ytId:"",
+    ytId:"UZqCuZavlo0",
     steps:["Встаньте у правой стены B апса",
            "Прицельтесь чуть выше правого края входа в B тоннель",
            "Обычный бросок"],
@@ -158,7 +158,7 @@ const LINEUPS = [
 
   { id:"mir_fl_02", map:"mirage", type:"flash", difficulty:"easy",
     name:"B Site Pop Flash", from:"B тоннель (выход)", to:"B сайт",
-    ytId:"",
+    ytId:"UZqCuZavlo0",
     steps:["Встаньте у выхода из B тоннеля, прижмитесь к левой стене",
            "Смотрите вверх на потолок тоннеля у выхода",
            "Бросьте флешку — рикошетит на сайт",
@@ -167,7 +167,7 @@ const LINEUPS = [
 
   { id:"mir_he_02", map:"mirage", type:"he", difficulty:"medium",
     name:"HE в Barrels (A)", from:"T апс A (левый угол)", to:"Barrels у A планта",
-    ytId:"",
+    ytId:"UZqCuZavlo0",
     steps:["Встаньте у левого угла T апса A",
            "Прицельтесь в центр верхнего края бочек",
            "Обычный бросок — HE взрывается у бочек"],
@@ -177,7 +177,7 @@ const LINEUPS = [
 
   { id:"inf_smk_01", map:"inferno", type:"smoke", difficulty:"easy",
     name:"CT Smoke (Banana)", from:"T-спавн (у машины)", to:"CT Connector",
-    ytId:"",
+    ytId:"D9Dntuy80l4",
     steps:["Встаньте у капота машины в T спавне",
            "Прицельтесь в верхний правый угол здания",
            "Обычный бросок"],
@@ -185,7 +185,7 @@ const LINEUPS = [
 
   { id:"inf_smk_02", map:"inferno", type:"smoke", difficulty:"medium",
     name:"Pit Smoke (A)", from:"T-спавн (центр)", to:"Pit",
-    ytId:"",
+    ytId:"D9Dntuy80l4",
     steps:["Встаньте по центру T спавна у линии",
            "Прицельтесь в верхний угол балкона здания",
            "Обычный бросок"],
@@ -193,7 +193,7 @@ const LINEUPS = [
 
   { id:"inf_smk_03", map:"inferno", type:"smoke", difficulty:"easy",
     name:"Library Smoke (A)", from:"T апс A (правая стена)", to:"Library",
-    ytId:"",
+    ytId:"D9Dntuy80l4",
     steps:["Подойдите к правой стене T апса A",
            "Прицельтесь чуть выше правого угла арки",
            "Обычный бросок"],
@@ -201,7 +201,7 @@ const LINEUPS = [
 
   { id:"inf_smk_04", map:"inferno", type:"smoke", difficulty:"hard",
     name:"Balcony Smoke (A)", from:"A апс T (левый ящик)", to:"Balcony",
-    ytId:"",
+    ytId:"D9Dntuy80l4",
     steps:["Встаньте у левого ящика в A апсе",
            "Смотрите вверх на балкон правого здания",
            "Нужен jumpthrow (прыжок + бросок одновременно)"],
@@ -209,7 +209,7 @@ const LINEUPS = [
 
   { id:"inf_mol_01", map:"inferno", type:"molotov", difficulty:"medium",
     name:"Car Molotov (B)", from:"Начало Banana", to:"Машина на Banana",
-    ytId:"",
+    ytId:"Nw3Gd3VT50A",
     steps:["Встаньте в начале Banana у левой стены",
            "Прицельтесь на верхний угол балкона над Banana",
            "Молотов накрывает машину"],
@@ -217,7 +217,7 @@ const LINEUPS = [
 
   { id:"inf_fl_01", map:"inferno", type:"flash", difficulty:"easy",
     name:"Banana Pop Flash", from:"Начало Banana", to:"Весь Banana",
-    ytId:"",
+    ytId:"Nw3Gd3VT50A",
     steps:["Встаньте у левой стены в начале Banana",
            "Смотрите вверх на угол стены над входом",
            "Бросьте флешку — рикошетит вглубь Banana",
@@ -226,7 +226,7 @@ const LINEUPS = [
 
   { id:"inf_smk_05", map:"inferno", type:"smoke", difficulty:"medium",
     name:"Coffins Smoke (A)", from:"T апс A (у правой стены)", to:"Coffins",
-    ytId:"",
+    ytId:"D9Dntuy80l4",
     steps:["Встаньте у правой стены T апса A",
            "Прицельтесь в верхний край левого угла Coffins",
            "Обычный бросок"],
@@ -234,7 +234,7 @@ const LINEUPS = [
 
   { id:"inf_smk_06", map:"inferno", type:"smoke", difficulty:"hard",
     name:"CT Smoke (A Mid)", from:"T спавн (центральная точка)", to:"CT позиция мид A",
-    ytId:"",
+    ytId:"D9Dntuy80l4",
     steps:["Встаньте на центральной линии T спавна",
            "Прицельтесь в верхний угол правого здания напротив",
            "Нужен jumpthrow"],
@@ -242,7 +242,7 @@ const LINEUPS = [
 
   { id:"inf_smk_07", map:"inferno", type:"smoke", difficulty:"easy",
     name:"Arch Smoke (A)", from:"T апс A (левая стена)", to:"Arch",
-    ytId:"",
+    ytId:"D9Dntuy80l4",
     steps:["Прислонитесь к левой стене T апса A",
            "Прицельтесь в правый верхний угол арки",
            "Обычный бросок"],
@@ -250,7 +250,7 @@ const LINEUPS = [
 
   { id:"inf_mol_02", map:"inferno", type:"molotov", difficulty:"medium",
     name:"Fountain Molotov (A)", from:"T апс A (у центра)", to:"Fountain",
-    ytId:"",
+    ytId:"Nw3Gd3VT50A",
     steps:["Встаньте по центру T апса A",
            "Прицельтесь в верхнюю часть правой колонны",
            "Молотов летит на Fountain"],
@@ -258,7 +258,7 @@ const LINEUPS = [
 
   { id:"inf_mol_03", map:"inferno", type:"molotov", difficulty:"easy",
     name:"Apartments Mol (B)", from:"Середина Banana", to:"Apartments вход",
-    ytId:"",
+    ytId:"Nw3Gd3VT50A",
     steps:["Встаньте по центру Banana у правой стены",
            "Прицельтесь в верхний левый угол входа в Apartments",
            "Обычный бросок"],
@@ -266,7 +266,7 @@ const LINEUPS = [
 
   { id:"inf_fl_02", map:"inferno", type:"flash", difficulty:"medium",
     name:"A Short Pop Flash", from:"T апс A (угол)", to:"A Short",
-    ytId:"",
+    ytId:"Nw3Gd3VT50A",
     steps:["Встаньте у угла стены T апса перед выходом на A",
            "Смотрите вверх под углом на угол стены",
            "Бросьте флешку — рикошетит в A Short",
@@ -275,7 +275,7 @@ const LINEUPS = [
 
   { id:"inf_he_01", map:"inferno", type:"he", difficulty:"medium",
     name:"Banana HE (стек)", from:"T спавн (за углом Banana)", to:"Начало Banana",
-    ytId:"",
+    ytId:"Nw3Gd3VT50A",
     steps:["Встаньте за углом у входа на Banana",
            "Прицельтесь на уровень голов в начало Banana",
            "Обычный бросок — HE наносит урон стеку CT"],
@@ -285,7 +285,7 @@ const LINEUPS = [
 
   { id:"d2_smk_01", map:"dust2", type:"smoke", difficulty:"easy",
     name:"Xbox Smoke (Mid)", from:"T-спавн (у ворот)", to:"Xbox",
-    ytId:"",
+    ytId:"AHeXRtk4Jco",
     steps:["Встаньте у правого косяка ворот T спавна",
            "Прицельтесь в верхний левый угол арки мида",
            "Обычный бросок"],
@@ -293,7 +293,7 @@ const LINEUPS = [
 
   { id:"d2_smk_02", map:"dust2", type:"smoke", difficulty:"medium",
     name:"CT Smoke (Mid→B)", from:"Mid Doors", to:"CT Spawn",
-    ytId:"",
+    ytId:"AHeXRtk4Jco",
     steps:["Откройте Mid Doors, встаньте у правой стены",
            "Прицельтесь в верхний правый угол CT окна",
            "Нужен jumpthrow"],
@@ -301,7 +301,7 @@ const LINEUPS = [
 
   { id:"d2_smk_03", map:"dust2", type:"smoke", difficulty:"easy",
     name:"Long Pit Smoke", from:"Long (у ящика)", to:"Pit",
-    ytId:"",
+    ytId:"AHeXRtk4Jco",
     steps:["Встаньте у ящика у входа на Long",
            "Прицельтесь в верхний угол левой стены",
            "Обычный бросок"],
@@ -309,7 +309,7 @@ const LINEUPS = [
 
   { id:"d2_smk_04", map:"dust2", type:"smoke", difficulty:"hard",
     name:"Goose Smoke (A)", from:"Long (у ворот A)", to:"Goose",
-    ytId:"",
+    ytId:"AHeXRtk4Jco",
     steps:["Встаньте у левой стены Long у ворот A",
            "Прицельтесь в антенну на крыше здания",
            "Нужен jumpthrow"],
@@ -317,7 +317,7 @@ const LINEUPS = [
 
   { id:"d2_fl_01", map:"dust2", type:"flash", difficulty:"easy",
     name:"Long Pop Flash", from:"Long (у ворот T)", to:"Long A / Pit",
-    ytId:"",
+    ytId:"XcORmf82_iY",
     steps:["Встаньте у левой стены, не заходя в Long",
            "Смотрите вверх в угол стены",
            "Флешка летит за угол и слепит позиции",
@@ -326,7 +326,7 @@ const LINEUPS = [
 
   { id:"d2_mol_01", map:"dust2", type:"molotov", difficulty:"easy",
     name:"Short Corner Mol", from:"Short (у ступенек)", to:"Угол Short A",
-    ytId:"",
+    ytId:"XcORmf82_iY",
     steps:["Встаньте у правой стены на Short",
            "Прицельтесь над правым углом стены",
            "Молотов накрывает угол"],
@@ -334,7 +334,7 @@ const LINEUPS = [
 
   { id:"d2_smk_05", map:"dust2", type:"smoke", difficulty:"easy",
     name:"B Doors Smoke", from:"B тоннели (вход)", to:"B Doors",
-    ytId:"",
+    ytId:"AHeXRtk4Jco",
     steps:["Встаньте у левой стены у входа в B тоннели",
            "Прицельтесь в верхний правый угол B Doors",
            "Обычный бросок"],
@@ -342,7 +342,7 @@ const LINEUPS = [
 
   { id:"d2_smk_06", map:"dust2", type:"smoke", difficulty:"medium",
     name:"CT Cross Smoke (B)", from:"B тоннели (выход)", to:"CT Cross",
-    ytId:"",
+    ytId:"AHeXRtk4Jco",
     steps:["Выйдите из B тоннелей, встаньте у левой стены",
            "Прицельтесь в верхний угол правого здания CT",
            "Нужен jumpthrow"],
@@ -350,7 +350,7 @@ const LINEUPS = [
 
   { id:"d2_smk_07", map:"dust2", type:"smoke", difficulty:"hard",
     name:"CT Spawn Smoke (A Long)", from:"Long (у ворот A)", to:"CT Spawn угол",
-    ytId:"",
+    ytId:"AHeXRtk4Jco",
     steps:["Встаньте у правой колонны у ворот A Long",
            "Прицельтесь в верхний левый угол CT Spawn",
            "Нужен jumpthrow — требует точного позиционирования"],
@@ -358,7 +358,7 @@ const LINEUPS = [
 
   { id:"d2_mol_02", map:"dust2", type:"molotov", difficulty:"medium",
     name:"B Site Back Mol", from:"B тоннели (выход)", to:"B Site задний угол",
-    ytId:"",
+    ytId:"XcORmf82_iY",
     steps:["Выйдите из B тоннелей на B сайт",
            "Прицельтесь вверх на угол задней стены сайта",
            "Молотов накрывает задний угол"],
@@ -366,7 +366,7 @@ const LINEUPS = [
 
   { id:"d2_mol_03", map:"dust2", type:"molotov", difficulty:"easy",
     name:"Long Corner Mol", from:"Long (у ворот A)", to:"Long угол у A",
-    ytId:"",
+    ytId:"XcORmf82_iY",
     steps:["Встаньте у ворот A Long",
            "Прицельтесь в левый угол у A Long Doors",
            "Обычный бросок"],
@@ -374,7 +374,7 @@ const LINEUPS = [
 
   { id:"d2_fl_02", map:"dust2", type:"flash", difficulty:"medium",
     name:"B Site Pop Flash", from:"B тоннели (у выхода)", to:"B сайт",
-    ytId:"",
+    ytId:"XcORmf82_iY",
     steps:["Встаньте у правой стены выхода из B тоннелей",
            "Смотрите вверх на потолок тоннеля",
            "Бросьте флешку — рикошетит на B сайт",
@@ -383,7 +383,7 @@ const LINEUPS = [
 
   { id:"d2_he_01", map:"dust2", type:"he", difficulty:"medium",
     name:"Tunnels Entry HE", from:"T спавн (перед тоннелями)", to:"Начало B тоннелей",
-    ytId:"",
+    ytId:"_qlYvhjk0Fo",
     steps:["Встаньте перед входом в B тоннели",
            "Прицельтесь на уровень голов в тоннель",
            "Обычный бросок — HE взрывается у входа"],
@@ -393,7 +393,7 @@ const LINEUPS = [
 
   { id:"anc_smk_01", map:"ancient", type:"smoke", difficulty:"medium",
     name:"Donut Smoke (A)", from:"T апс A (правая стена)", to:"Donut / CT угол",
-    ytId:"",
+    ytId:"Vq2XL6ZemQk",
     steps:["Встаньте у правой стены T апса A",
            "Смотрите на правый угол арки Donut",
            "Обычный бросок"],
@@ -401,7 +401,7 @@ const LINEUPS = [
 
   { id:"anc_smk_02", map:"ancient", type:"smoke", difficulty:"hard",
     name:"CT Main Smoke (A)", from:"T апс A (у статуи)", to:"CT Main",
-    ytId:"",
+    ytId:"Vq2XL6ZemQk",
     steps:["Встаньте у постамента статуи в T апсе A",
            "Прицельтесь в верхний правый угол над аркой CT",
            "Нужен jumpthrow"],
@@ -409,7 +409,7 @@ const LINEUPS = [
 
   { id:"anc_smk_03", map:"ancient", type:"smoke", difficulty:"medium",
     name:"Mid Smoke", from:"T апс мид", to:"Mid CT",
-    ytId:"",
+    ytId:"Vq2XL6ZemQk",
     steps:["Встаньте у левой стены T апса мида",
            "Прицельтесь в правый верхний угол тоннеля",
            "Обычный бросок"],
@@ -417,7 +417,7 @@ const LINEUPS = [
 
   { id:"anc_mol_01", map:"ancient", type:"molotov", difficulty:"medium",
     name:"B Stairs Molotov", from:"B апс (правая стена)", to:"Лестницы B",
-    ytId:"",
+    ytId:"aiVZVJzod7o",
     steps:["Встаньте у правой стены B апса",
            "Прицельтесь на угол перил лестницы",
            "Молотов летит на лестницы"],
@@ -425,7 +425,7 @@ const LINEUPS = [
 
   { id:"anc_smk_04", map:"ancient", type:"smoke", difficulty:"easy",
     name:"Cave Smoke (A)", from:"T апс A (центр)", to:"Cave вход",
-    ytId:"",
+    ytId:"Vq2XL6ZemQk",
     steps:["Встаньте по центру T апса A",
            "Прицельтесь в верхний правый угол входа в Cave",
            "Обычный бросок"],
@@ -433,7 +433,7 @@ const LINEUPS = [
 
   { id:"anc_smk_05", map:"ancient", type:"smoke", difficulty:"medium",
     name:"Water Smoke (B)", from:"B апс (левая стена)", to:"Water выход",
-    ytId:"",
+    ytId:"Vq2XL6ZemQk",
     steps:["Встаньте у левой стены B апса",
            "Прицельтесь в верхний угол Water выхода",
            "Обычный бросок"],
@@ -441,7 +441,7 @@ const LINEUPS = [
 
   { id:"anc_smk_06", map:"ancient", type:"smoke", difficulty:"hard",
     name:"Temple Smoke (A)", from:"T спавн (у правой стены)", to:"Temple позиция",
-    ytId:"",
+    ytId:"Vq2XL6ZemQk",
     steps:["Встаньте у правой стены T спавна",
            "Прицельтесь в верхний угол Temple здания",
            "Нужен jumpthrow"],
@@ -449,7 +449,7 @@ const LINEUPS = [
 
   { id:"anc_mol_02", map:"ancient", type:"molotov", difficulty:"medium",
     name:"A Donut Molotov", from:"T апс A (правый угол)", to:"Donut угол",
-    ytId:"",
+    ytId:"aiVZVJzod7o",
     steps:["Встаньте у правого угла T апса A",
            "Прицельтесь в нижний угол Donut позиции",
            "Молотов накрывает Donut"],
@@ -457,7 +457,7 @@ const LINEUPS = [
 
   { id:"anc_mol_03", map:"ancient", type:"molotov", difficulty:"easy",
     name:"B Site Corner Mol", from:"B апс (центр)", to:"B сайт (левый угол)",
-    ytId:"",
+    ytId:"aiVZVJzod7o",
     steps:["Встаньте по центру B апса",
            "Прицельтесь в левый угол B сайта",
            "Обычный бросок"],
@@ -465,7 +465,7 @@ const LINEUPS = [
 
   { id:"anc_fl_01", map:"ancient", type:"flash", difficulty:"medium",
     name:"A Site Pop Flash", from:"T апс A (у стены)", to:"A сайт",
-    ytId:"",
+    ytId:"aiVZVJzod7o",
     steps:["Встаньте у правой стены T апса A",
            "Смотрите вверх на угол стены над выходом",
            "Бросьте флешку — рикошетит на A сайт",
@@ -474,7 +474,7 @@ const LINEUPS = [
 
   { id:"anc_fl_02", map:"ancient", type:"flash", difficulty:"easy",
     name:"Mid Pop Flash", from:"Mid (T сторона)", to:"Mid CT позиция",
-    ytId:"",
+    ytId:"aiVZVJzod7o",
     steps:["Встаньте у левой стены мид тоннеля",
            "Смотрите вверх на потолок тоннеля",
            "Бросьте флешку — рикошетит на CT",
@@ -483,7 +483,7 @@ const LINEUPS = [
 
   { id:"anc_he_01", map:"ancient", type:"he", difficulty:"medium",
     name:"B Ramp HE", from:"B апс (перед входом)", to:"B Ramp позиция",
-    ytId:"",
+    ytId:"aiVZVJzod7o",
     steps:["Встаньте перед выходом на B Ramp",
            "Прицельтесь в нижнюю часть Ramp позиции",
            "Обычный бросок"],
@@ -493,7 +493,7 @@ const LINEUPS = [
 
   { id:"nuke_smk_01", map:"nuke", type:"smoke", difficulty:"easy",
     name:"Hut Smoke", from:"Outside (T)", to:"Hut вход",
-    ytId:"",
+    ytId:"AXFPoVEgXPY",
     steps:["Встаньте у левой стены снаружи",
            "Прицельтесь в верхний угол Hut",
            "Обычный бросок"],
@@ -501,7 +501,7 @@ const LINEUPS = [
 
   { id:"nuke_smk_02", map:"nuke", type:"smoke", difficulty:"hard",
     name:"Rafters Smoke (A Upper)", from:"Hut / Radio", to:"Rafters",
-    ytId:"",
+    ytId:"AXFPoVEgXPY",
     steps:["Зайдите в Hut, встаньте у левой стены",
            "Смотрите вверх на люк Rafters",
            "Нужен jumpthrow через люк"],
@@ -509,7 +509,7 @@ const LINEUPS = [
 
   { id:"nuke_smk_03", map:"nuke", type:"smoke", difficulty:"medium",
     name:"Garage Smoke", from:"T апс гаража", to:"Garage вход",
-    ytId:"",
+    ytId:"AXFPoVEgXPY",
     steps:["Встаньте у правой стены T апса гаража",
            "Прицельтесь в верхний угол ворот",
            "Обычный бросок"],
@@ -517,7 +517,7 @@ const LINEUPS = [
 
   { id:"nuke_mol_01", map:"nuke", type:"molotov", difficulty:"medium",
     name:"Mini Molotov (B Lower)", from:"B Lower апс", to:"Mini позиция",
-    ytId:"",
+    ytId:"nH_yaNNyzB8",
     steps:["Зайдите в B Lower, встаньте у правой стены",
            "Прицельтесь в угол Mini позиции",
            "Молотов накрывает Mini"],
@@ -525,7 +525,7 @@ const LINEUPS = [
 
   { id:"nuke_smk_04", map:"nuke", type:"smoke", difficulty:"medium",
     name:"Squeaky Smoke", from:"Ramp (у двери Squeaky)", to:"Squeaky проём",
-    ytId:"",
+    ytId:"AXFPoVEgXPY",
     steps:["Встаньте у двери Squeaky на Ramp",
            "Прицельтесь в верхний левый угол проёма",
            "Обычный бросок"],
@@ -533,7 +533,7 @@ const LINEUPS = [
 
   { id:"nuke_smk_05", map:"nuke", type:"smoke", difficulty:"hard",
     name:"Outside CT Smoke", from:"Outside (T позиция)", to:"CT выход Outside",
-    ytId:"",
+    ytId:"AXFPoVEgXPY",
     steps:["Встаньте у правой стены снаружи",
            "Прицельтесь в верхний правый угол CT здания",
            "Нужен jumpthrow"],
@@ -541,7 +541,7 @@ const LINEUPS = [
 
   { id:"nuke_smk_06", map:"nuke", type:"smoke", difficulty:"medium",
     name:"Lobby Smoke (B Upper)", from:"Ramp (начало)", to:"CT Lobby",
-    ytId:"",
+    ytId:"AXFPoVEgXPY",
     steps:["Встаньте в начале Ramp у левой стены",
            "Прицельтесь в верхний угол CT Lobby",
            "Обычный бросок"],
@@ -549,7 +549,7 @@ const LINEUPS = [
 
   { id:"nuke_mol_02", map:"nuke", type:"molotov", difficulty:"medium",
     name:"Secret Molotov", from:"Secret коридор", to:"Secret угол",
-    ytId:"",
+    ytId:"nH_yaNNyzB8",
     steps:["Зайдите в Secret коридор",
            "Встаньте у левой стены",
            "Прицельтесь в угол Secret позиции CT",
@@ -558,7 +558,7 @@ const LINEUPS = [
 
   { id:"nuke_mol_03", map:"nuke", type:"molotov", difficulty:"easy",
     name:"Ramp Molotov (CT угол)", from:"Ramp (середина)", to:"CT угол у Ramp выхода",
-    ytId:"",
+    ytId:"nH_yaNNyzB8",
     steps:["Встаньте в середине Ramp",
            "Прицельтесь в нижний угол CT выхода с Ramp",
            "Обычный бросок"],
@@ -566,7 +566,7 @@ const LINEUPS = [
 
   { id:"nuke_fl_01", map:"nuke", type:"flash", difficulty:"medium",
     name:"Outside Pop Flash (A Upper)", from:"Outside (T левая стена)", to:"A Upper сайт",
-    ytId:"",
+    ytId:"1I1E9QYCNFg",
     steps:["Встаньте у левой стены снаружи",
            "Смотрите вверх на угол крыши здания",
            "Бросьте флешку — рикошетит на A Upper",
@@ -575,7 +575,7 @@ const LINEUPS = [
 
   { id:"nuke_he_01", map:"nuke", type:"he", difficulty:"hard",
     name:"B Lower Garage HE", from:"Garage (T сторона)", to:"B Lower апс CT",
-    ytId:"",
+    ytId:"gXqYFjHauCM",
     steps:["Встаньте у ворот Garage на T стороне",
            "Прицельтесь в верхний угол B Lower апса CT",
            "Нужен jumpthrow"],
@@ -585,7 +585,7 @@ const LINEUPS = [
 
   { id:"vert_smk_01", map:"vertigo", type:"smoke", difficulty:"medium",
     name:"CT Smoke (A)", from:"T апс A (у стены)", to:"CT выход",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Прислонитесь к правой стене T апса A",
            "Прицельтесь в угол трубы над CT выходом",
            "Обычный бросок"],
@@ -593,7 +593,7 @@ const LINEUPS = [
 
   { id:"vert_smk_02", map:"vertigo", type:"smoke", difficulty:"hard",
     name:"B CT Smoke", from:"T апс B", to:"CT B выход",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Встаньте у левого края T апса B",
            "Прицельтесь в верхний угол вентиляции",
            "Нужен jumpthrow"],
@@ -601,7 +601,7 @@ const LINEUPS = [
 
   { id:"vert_mol_01", map:"vertigo", type:"molotov", difficulty:"medium",
     name:"A Site Corner Mol", from:"T апс A (центр)", to:"A плант (левый угол)",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Встаньте у центра T апса A",
            "Прицельтесь в верхний угол стены над плантом",
            "Молотов накрывает угол у A планта"],
@@ -609,7 +609,7 @@ const LINEUPS = [
 
   { id:"vert_smk_03", map:"vertigo", type:"smoke", difficulty:"medium",
     name:"Mid Smoke (A→B)", from:"Mid (T сторона)", to:"Mid CT позиция",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Встаньте у левой стены мид на T стороне",
            "Прицельтесь в верхний правый угол мид коридора",
            "Обычный бросок"],
@@ -617,7 +617,7 @@ const LINEUPS = [
 
   { id:"vert_smk_04", map:"vertigo", type:"smoke", difficulty:"hard",
     name:"Scaffolding Smoke (A)", from:"T апс A (у левой стены)", to:"Scaffolding",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Встаньте у левой стены T апса A",
            "Прицельтесь в верхний угол Scaffolding",
            "Нужен jumpthrow"],
@@ -625,7 +625,7 @@ const LINEUPS = [
 
   { id:"vert_smk_05", map:"vertigo", type:"smoke", difficulty:"easy",
     name:"B Ramp Smoke", from:"T апс B (правая стена)", to:"B Ramp выход",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Встаньте у правой стены T апса B",
            "Прицельтесь в верхний угол B Ramp выхода",
            "Обычный бросок"],
@@ -633,7 +633,7 @@ const LINEUPS = [
 
   { id:"vert_mol_02", map:"vertigo", type:"molotov", difficulty:"medium",
     name:"Mid Molotov (CT угол)", from:"Mid T сторона", to:"CT Mid угол",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Встаньте в начале мид коридора T стороны",
            "Прицельтесь в нижний угол CT мид",
            "Обычный бросок"],
@@ -641,7 +641,7 @@ const LINEUPS = [
 
   { id:"vert_mol_03", map:"vertigo", type:"molotov", difficulty:"easy",
     name:"B Site Back Mol", from:"T апс B (центр)", to:"B сайт задний угол",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Встаньте по центру T апса B",
            "Прицельтесь в задний угол B сайта",
            "Обычный бросок"],
@@ -649,7 +649,7 @@ const LINEUPS = [
 
   { id:"vert_fl_01", map:"vertigo", type:"flash", difficulty:"medium",
     name:"A Site Pop Flash", from:"T апс A (левый угол)", to:"A сайт",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Встаньте у левого угла T апса A",
            "Смотрите вверх на потолок апса",
            "Бросьте флешку — рикошетит на A сайт",
@@ -658,7 +658,7 @@ const LINEUPS = [
 
   { id:"vert_fl_02", map:"vertigo", type:"flash", difficulty:"easy",
     name:"B Pop Flash", from:"T апс B (у правой стены)", to:"B сайт",
-    ytId:"",
+    ytId:"fj1bWi06UWI",
     steps:["Встаньте у правой стены T апса B",
            "Смотрите вверх на правый угол потолка апса",
            "Бросьте флешку — рикошетит на B сайт",
@@ -667,7 +667,7 @@ const LINEUPS = [
 
   { id:"vert_he_01", map:"vertigo", type:"he", difficulty:"medium",
     name:"A Boost HE", from:"T апс A (у стены)", to:"A Boost позиция CT",
-    ytId:"",
+    ytId:"KASlUcNyNX0",
     steps:["Встаньте у левой стены T апса A",
            "Прицельтесь в Boost позицию у правой стены A сайта",
            "Обычный бросок"],
@@ -677,7 +677,7 @@ const LINEUPS = [
 
   { id:"anu_smk_01", map:"anubis", type:"smoke", difficulty:"easy",
     name:"CT Smoke (B)", from:"B апс (правая стена)", to:"CT угол",
-    ytId:"",
+    ytId:"tKQuhZOnNZc",
     steps:["Встаньте у правой стены B апса",
            "Прицельтесь в верхний правый угол арки",
            "Обычный бросок"],
@@ -685,7 +685,7 @@ const LINEUPS = [
 
   { id:"anu_smk_02", map:"anubis", type:"smoke", difficulty:"medium",
     name:"A Exit Smoke (Water)", from:"Mid (через воду)", to:"A выход",
-    ytId:"",
+    ytId:"tKQuhZOnNZc",
     steps:["Войдите в воду на мид",
            "Встаньте у правой стены канала",
            "Прицельтесь в верхний угол A выхода",
@@ -694,7 +694,7 @@ const LINEUPS = [
 
   { id:"anu_fl_01", map:"anubis", type:"flash", difficulty:"easy",
     name:"B Pop Flash", from:"B тоннель (у стены)", to:"B сайт",
-    ytId:"",
+    ytId:"GUz7TAGl4qY",
     steps:["Встаньте у правой стены B тоннеля",
            "Смотрите вверх на потолок тоннеля",
            "Бросьте флешку — рикошетит на сайт",
@@ -703,7 +703,7 @@ const LINEUPS = [
 
   { id:"anu_smk_03", map:"anubis", type:"smoke", difficulty:"medium",
     name:"Bridge Smoke (A)", from:"T спавн (у левой стены)", to:"Bridge",
-    ytId:"",
+    ytId:"tKQuhZOnNZc",
     steps:["Встаньте у левой стены T спавна",
            "Прицельтесь в верхний правый угол колонны Bridge",
            "Обычный бросок"],
@@ -711,7 +711,7 @@ const LINEUPS = [
 
   { id:"anu_smk_04", map:"anubis", type:"smoke", difficulty:"hard",
     name:"Palace CT Smoke", from:"B апс (у колонны)", to:"CT Palace выход",
-    ytId:"",
+    ytId:"tKQuhZOnNZc",
     steps:["Встаньте у ближней колонны B апса",
            "Прицельтесь в верхний угол CT Palace арки",
            "Нужен jumpthrow"],
@@ -719,7 +719,7 @@ const LINEUPS = [
 
   { id:"anu_smk_05", map:"anubis", type:"smoke", difficulty:"easy",
     name:"Mid Canal Smoke", from:"T спавн (у правой стены)", to:"Mid Canal CT",
-    ytId:"",
+    ytId:"tKQuhZOnNZc",
     steps:["Встаньте у правой стены T спавна",
            "Прицельтесь в верхний левый угол Mid Canal",
            "Обычный бросок"],
@@ -727,7 +727,7 @@ const LINEUPS = [
 
   { id:"anu_mol_01", map:"anubis", type:"molotov", difficulty:"medium",
     name:"B Doorway Molotov", from:"B апс (центр)", to:"B Doorway CT",
-    ytId:"",
+    ytId:"GUz7TAGl4qY",
     steps:["Встаньте по центру B апса",
            "Прицельтесь в верхний правый угол B Doorway",
            "Молотов накрывает Doorway"],
@@ -735,7 +735,7 @@ const LINEUPS = [
 
   { id:"anu_mol_02", map:"anubis", type:"molotov", difficulty:"easy",
     name:"A Site Corner Mol", from:"T спавн (A апс)", to:"A сайт левый угол",
-    ytId:"",
+    ytId:"GUz7TAGl4qY",
     steps:["Встаньте у левой стены A апса",
            "Прицельтесь в левый угол A сайта",
            "Обычный бросок"],
@@ -743,7 +743,7 @@ const LINEUPS = [
 
   { id:"anu_fl_02", map:"anubis", type:"flash", difficulty:"medium",
     name:"A Short Pop Flash", from:"A апс (T сторона)", to:"A Short CT",
-    ytId:"",
+    ytId:"GUz7TAGl4qY",
     steps:["Встаньте у левой стены A апса",
            "Смотрите вверх на угол стены у A Short",
            "Бросьте флешку — рикошетит на A Short",
@@ -752,7 +752,7 @@ const LINEUPS = [
 
   { id:"anu_he_01", map:"anubis", type:"he", difficulty:"medium",
     name:"Mid Water HE", from:"Mid (T вход в воду)", to:"Mid Water CT позиция",
-    ytId:"",
+    ytId:"1Xe2-ymHTfQ",
     steps:["Встаньте у входа в воду на мид",
            "Прицельтесь на уровень голов CT позиции",
            "Обычный бросок"],
