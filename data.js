@@ -9,9 +9,9 @@
 // ═══════════════════════════════════════════════════════════
 
 const MAPS = {
-  mirage:  { name: "Mirage",   emoji: "🏙️",  c1: "#1B2B4B", c2: "#4A321A" },
+  mirage:  { name: "Mirage",   emoji: "🏙️",  c1: "#1B2B4B", c2: "#4A321A", overviewYtId: "gU6rosu8MHE" },
   inferno: { name: "Inferno",  emoji: "🌆",  c1: "#3D0F05", c2: "#8B2800" },
-  dust2:   { name: "Dust 2",   emoji: "🏜️",  c1: "#2B2010", c2: "#5C3D15" },
+  dust2:   { name: "Dust 2",   emoji: "🏜️",  c1: "#2B2010", c2: "#5C3D15", overviewUrl: "videos/dust2-grenades.mp4" },
   ancient: { name: "Ancient",  emoji: "🏛️",  c1: "#0F2A18", c2: "#1E4A2A" },
   nuke:    { name: "Nuke",     emoji: "☢️",  c1: "#0F1B2B", c2: "#1E2B3F" },
   anubis:  { name: "Anubis",   emoji: "🐾",  c1: "#251A00", c2: "#4A3200" },
